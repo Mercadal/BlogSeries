@@ -1,0 +1,118 @@
+{% extends '::base.html.twig' %}
+
+
+
+
+{% block body %}
+
+
+
+    <h1>Bienvenue sur notre blog</h1>
+
+
+    <p>Dans ce blog vous pourrez découvrir les séries qui vous correspondent, de nouveaux genres, mais aussi des séries dont peu de gens connaissent l'existence, mais qui font l'unanimité chez les internautes! </p>
+
+
+
+    <h1>Notre sélection</h1>
+
+
+    <ul style="margin-top: 10px;">
+        <li>
+            <a href="{{ path('blog_new') }}">
+                <h3>Créer un article...</h3>
+            </a>
+        </li>
+    </ul>
+
+
+
+
+
+
+    <table class="table table-responsive" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>A l'image</th>
+                <th>Titre</th>
+                <th>Auteur de l'article</th>
+                <th>Nos articles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+
+
+            <tr>
+        <div class="container-fluid">
+            <div class="table-responsive">
+
+
+                <td><p>  <img src="{{asset('images/' ~ entity.id ~ '.jpeg') }}" alt=""  width="410" height="220" /> </p></td>
+
+
+
+
+
+
+                <td>{{ entity.title }}</td>
+
+
+
+                <td>{{ entity.author }}</td>
+
+
+
+                <td>{{ entity.blog }}</td>
+
+
+
+
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('blog_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('blog_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+        </div>
+        </div>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+     <footer class="row">
+
+
+  <div class="container">
+
+<ul class="pagination">
+    <li><a href="#">1</a></li>
+</ul>
+
+<ul class="pager">
+  <li><a href="#">Previous</a></li>
+  <li><a href="#">Next</a></li>
+</ul>
+
+
+
+  </div>
+
+
+      </footer>
+
+
+
+
+    {% endblock %}

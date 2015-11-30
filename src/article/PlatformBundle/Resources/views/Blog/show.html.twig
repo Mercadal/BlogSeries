@@ -1,0 +1,73 @@
+{% extends '::base.html.twig' %}
+
+
+
+{% block body %}
+
+
+
+    <h1>Informations sur l'article</h1>
+
+        <table class="record_properties">
+            <tbody>
+
+            <tr>
+            <th>File</th>
+            <td>{{ entity.file }}</td>
+            </tr>
+
+
+            <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+            </tr>
+
+
+            <tr>
+                <th>Title</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+
+            <tr>
+                <th>Author</th>
+                <td>{{ entity.author }}</td>
+            </tr>
+
+            <tr>
+                <th>Blog</th>
+                <td>{{ entity.blog }}</td>
+            </tr>
+
+
+
+            <tr>
+                <th>Created</th>
+                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
+            </tr>
+
+            <tr>
+                  <th>Updated</th>
+                    <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+
+
+
+            <ul class="record_actions">
+        <li>
+            <a href="{{ path('blog') }}">
+                Retour aux articles
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('blog_edit', { 'id': entity.id }) }}">
+                modifier
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+    {% endblock %}

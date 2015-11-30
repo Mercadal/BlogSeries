@@ -1,0 +1,2 @@
+[2015-11-26 22:56:00] assetic.ERROR: The template "::Fakebase.html.twig" contains an error: There is no "bootstrap_less" asset. [] []
+[2015-11-30 12:16:15] assetic.ERROR: The template "::Fakebase.html.twig" contains an error: There is no "bootstrap_less" asset. [] []
